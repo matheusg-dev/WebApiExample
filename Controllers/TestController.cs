@@ -2,7 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
 [route("test/")]
-public class Test Controller : ControllerBase
+public class TestController : ControllerBase
 {
-
+    [HttpGet]
+    public string Get()
+    {
+        return "Minha Api está rodando!";
+    }
 }
