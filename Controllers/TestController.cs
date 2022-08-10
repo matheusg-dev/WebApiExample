@@ -31,6 +31,7 @@ public class TestController : ControllerBase
 
     {
         double delta =  Math.sqrt(b*b-4*a*c);
-        double x1 = (-b + (delta)) / a;   
+        double x1 = (-b + (delta)) / a;
+        l   
     }
 }
