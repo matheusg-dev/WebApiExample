@@ -18,20 +18,26 @@ public class TestController : ControllerBase
     }
 
     [HttpGet("solucao")]
-    public object Get(double a = 1, double b = 0, double c = 0)
+    public object Get(
+        double a = 1, double b = 0, double c = 0)
     {
         if(a == 0)
         {
             return new{
                 status = "fail",
-                message = "delta não pode ser negativo"
+                message = "'a' não pode ser zero."
             };
         }
-    }
 
-    {
-        double delta =  Math.sqrt(b*b-4*a*c);
-        double x1 = (-b + (delta)) / a;
-        l   
-    }
+        double x1 = (-b + math.sqrt(delta)) / a;
+        double x2 = (-b - Math.Sqrt(delta)) / a;
+
+        return new{
+            status = "sucesso";
+            solucao1 = x1,
+            solucao2 = x2
+        };
+
+   }
+
 }
