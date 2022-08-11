@@ -29,11 +29,20 @@ public class TestController : ControllerBase
             };
         }
 
-        double x1 = (-b + math.sqrt(delta)) / a;
+        double delta = b * b - 4 * a * c;
+        if(delta < 0)
+        {
+            return new{
+                status = "fail",
+                message = "delta não pode ser negativo"
+            };
+        }
+
+        double x1 = (-b + Math.Sqrt(delta)) / a;
         double x2 = (-b - Math.Sqrt(delta)) / a;
 
         return new{
-            status = "sucesso";
+            status = "sucesso",
             solucao1 = x1,
             solucao2 = x2
         };
