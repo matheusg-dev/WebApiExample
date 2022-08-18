@@ -9,10 +9,17 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<CpfService>(p =>
 {
-   int seed = DateTime.NowMillisecond;
-   CpfService Service = new CpfService(seed);
+   int seed = DateTime.Now.Millisecond;
+   CpfService service = new CpfService(seed);
    return service;
 
+});
+
+builder.Services.AddSingleton<CEPService>(p =>
+{
+    string baseUrl = "https://viacep.com.br/wa/{cep}/json/";
+    CEPService service = new CEPService(baseUrl);
+    return service;
 });
 
 var app = builder.Build();

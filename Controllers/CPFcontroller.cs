@@ -1,23 +1,25 @@
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("CPF/")]
-public class CPFController : ControllerBase
+[Route("cpf/")]
+public class CpfController : ControllerBase
 {
-    [HttpGet("generate")]
-    public object Generate(
-        [FromService]CpfService, cpfService)
+    [HttpGet("validate/{cpf}")]
+    public object Validate(
+        [FromServices]CpfService cpfService,
+        string cpf)
     {
         throw new NotImplementedException();
     }
 
-    [HttpGet("validate/{cpf}")]
-    public object Validate();{
-    ([FromService]CpfService, cpfService,
-        string cpf)
-    
+    [HttpGet("generate")]
+    public object Generate(
+        [FromServices]CpfService cpfService
+    )
+    {
         throw new NotImplementedException();
     }
+}
     /*
     [HttpGet("Generate")]
     public object Generate(
@@ -37,4 +39,3 @@ public class CPFController : ControllerBase
         throw new NotImplementedException();
     }
     */
-}
