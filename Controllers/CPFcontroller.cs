@@ -9,7 +9,10 @@ public class CpfController : ControllerBase
         [FromServices]CpfService cpfService,
         string cpf)
     {
-        throw new NotImplementedException();
+       try
+       {
+           
+       }
     }
 
     [HttpGet("generate")]
@@ -17,7 +20,11 @@ public class CpfController : ControllerBase
         [FromServices]CpfService cpfService
     )
     {
-        throw new NotImplementedException();
+       return new{
+           Status = "Sucess",
+           cpf = cpfService.Generate()
+           
+       };
     }
 }
     /*

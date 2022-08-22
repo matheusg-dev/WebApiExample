@@ -8,13 +8,20 @@ public class CpfService
 
     public bool Validate(string cpf)
     {
-        throw new NotImplementedException();
+       string cpf9digits = cpf.Substring(0,9);
+       string cpfValidation = cpf.Substring(9,2);
+       string realValidation = getValidationDigits(cpf9digits);
+       return cpfValidation == realValidation;
     }
 
     public string Generate()
     {
+        int cpfValue = rand.Next(100000000);
+        string cpf = cpfValue.ToString("000\\.000\\.000");
+        string cpf9digits = cpfValue.ToString("000000000");
 
- throw new NotImplementedException();
+        string validation = getValidationDigits(cpf);
+        return cpf + '-' + validation;
     }
 
     //detalhes em: http://www.calculadorafacil.com.br/computacao/validar/cpf
